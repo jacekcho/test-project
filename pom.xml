@@ -28,6 +28,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
+                    <threadCount>${forkCount}</threadCount>
                     <groups>${test.groups}</groups>
                     <systemPropertiesFile>${properties.file}</systemPropertiesFile>
                     <argLine>-Xms64m -Xmx128m</argLine>
