@@ -32,19 +32,20 @@ public class RegistrationPageTest extends DriverFactory {
         new DemoqaMainPage().get().goToRegistrationPage();
 
         //when
-        registrationPage.setFirstName("Jacek").setLastName("Nowak");
-        registrationPage.setMaritalStatus(MartialStatus.MARRIED);
-        registrationPage.setHobby(Hobby.DANCE).setHobby(Hobby.READING);
-        registrationPage.selectCountry(Country.POLAND);
-        registrationPage.setPhoneNumber(Generators.setRandomPhoneNumber());
-        registrationPage.setUserName(Generators.setRandomUserName());
-        registrationPage.setEmail(Generators.setRandomEmail());
-        registrationPage.uploadAvatar();
-        registrationPage.setDateOfBirth(8, 4, 1985);
-        registrationPage.fillDescriptionFromFile();
-        registrationPage.setPassword(PropertiesManager.getInstance().getDemoqapass());
-
-        registrationPage.submitRegistratiorn();
+        registrationPage.setFirstName("Jacek")
+                .setLastName("Nowak")
+                .setMaritalStatus(MartialStatus.MARRIED)
+                .setHobby(Hobby.DANCE)
+                .setHobby(Hobby.READING)
+                .selectCountry(Country.POLAND)
+                .setPhoneNumber(Generators.setRandomPhoneNumber())
+                .setUserName(Generators.setRandomUserName())
+                .setEmail(Generators.setRandomEmail())
+                .uploadAvatar()
+                .setDateOfBirth(8, 4, 1985)
+                .fillDescriptionFromFile()
+                .setPassword(PropertiesManager.getInstance().getDemoqapass())
+                .submitRegistratiorn();
 
         //then
         assertThat(registrationPage.getRegisteredMessage(), containsString(CONFIRMATION));

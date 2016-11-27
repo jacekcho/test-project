@@ -169,7 +169,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage uploadAvatar() {
-        String pathToAvatar = new File("src/main/resources/obrazek.gif").getAbsolutePath();
+        String pathToAvatar = new File("src/main/resources/picture.gif").getAbsolutePath();
         uploadProfilePicture.sendKeys(pathToAvatar);
         return this;
     }
@@ -187,11 +187,13 @@ public class RegistrationPage {
         File file = new File(String.format("src/main/resources/%s", fileName));
 
         try {
-            for (String line : FileUtils.readLines(file))
+            for (String line : FileUtils.readLines(file, "UTF-8")) {
                 text = text + line + "\n";
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
         return text;
     }
 
