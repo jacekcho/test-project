@@ -14,7 +14,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
-public class RegistrationPageTest extends DriverFactory {
+public class RegistrationPageIT extends DriverFactory {
 
     private RegistrationPage registrationPage;
 

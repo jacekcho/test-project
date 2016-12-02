@@ -17,7 +17,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  * Scenariusz ma za zadanie jedynie zobrazowac jak działają testy (docelowe scenariusze nie powinny tak wygladac)
  */
 
-public class ExampleTest {
+public class ExampleIT {
 
   @Ignore                                         //Sam test został zignorowany aby nie wykonywać go nadmiarowo
   @Test                                           //Adnotacja jUnit'a za jej pomocą informujemy, że tutaj zaczyna się test

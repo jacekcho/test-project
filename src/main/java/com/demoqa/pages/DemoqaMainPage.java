@@ -13,10 +13,10 @@ import static org.junit.Assert.assertTrue;
 
 public class DemoqaMainPage extends SlowLoadableComponent<DemoqaMainPage> {
 
-    @FindBy(xpath = "//a[contains(text(),'Registration')]")
+    @FindBy(linkText = "Registration")
     private WebElement menuRegistration;
 
-    @FindBy(xpath = "//a[contains(text(),'Draggable')]")
+    @FindBy(linkText = "Draggable")
     private WebElement menuDraggable;
 
 

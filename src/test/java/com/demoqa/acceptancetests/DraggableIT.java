@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
 @Category(TestCategory.class)
-public class DraggableTest extends DriverFactory {
+public class DraggableIT extends DriverFactory {
 
 
     private DemoqaMainPage demoqaMainPage;

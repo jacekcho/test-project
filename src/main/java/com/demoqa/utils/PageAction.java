@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -44,6 +45,15 @@ public class PageAction {
         for (String winHandle : DriverFactory.driver.getWindowHandles()) {
             DriverFactory.driver.switchTo().window(winHandle);
         }
+    }
+
+    public void waitForAjax() {
+        (new WebDriverWait(DriverFactory.driver, 35)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                JavascriptExecutor js = (JavascriptExecutor) d;
+                return (Boolean) js.executeScript("return jQuery.active == 0");
+            }
+        });
     }
 }
 
