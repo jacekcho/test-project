@@ -1,4 +1,4 @@
-package com.demoqa.acceptancetests;
+package com.demoqa.exampletests;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
