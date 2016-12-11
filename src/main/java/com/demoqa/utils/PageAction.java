@@ -14,7 +14,7 @@ public class PageAction {
     private WebDriverWait wait;
 
     public PageAction() {
-        wait = new WebDriverWait(DriverFactory.driver, 35);
+        wait = new WebDriverWait(DriverFactory.driver, DriverFactory.EXPLICIT_TIMEOUT);
     }
 
     public void insertText(WebElement element, String value) {

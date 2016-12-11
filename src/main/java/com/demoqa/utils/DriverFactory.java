@@ -11,7 +11,7 @@ public class DriverFactory {
 
     public static ChromeDriver driver;
 
-    public static final int IMPLICIT_TIMEOUT = 15;
+    public static final int EXPLICIT_TIMEOUT = 35;
 
     @Rule
     public ScreenShots rule = new ScreenShots();

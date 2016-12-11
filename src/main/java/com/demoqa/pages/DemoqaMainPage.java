@@ -23,7 +23,7 @@ public class DemoqaMainPage extends SlowLoadableComponent<DemoqaMainPage> {
     private PageAction pageAction;
 
     public DemoqaMainPage() {
-        super(new SystemClock(), DriverFactory.IMPLICIT_TIMEOUT);
+        super(new SystemClock(), DriverFactory.EXPLICIT_TIMEOUT);
         PageFactory.initElements(DriverFactory.driver, this);
         pageAction = new PageAction();
     }
