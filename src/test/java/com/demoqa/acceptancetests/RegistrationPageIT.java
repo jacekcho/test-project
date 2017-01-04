@@ -1,6 +1,6 @@
 package com.demoqa.acceptancetests;
 
-import com.demoqa.utils.DriverFactory;
+import com.demoqa.driver.DriverFactory;
 import com.demoqa.utils.Generators;
 import com.demoqa.dictionary.Country;
 import com.demoqa.dictionary.Hobby;

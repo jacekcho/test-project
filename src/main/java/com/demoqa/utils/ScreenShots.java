@@ -1,5 +1,6 @@
 package com.demoqa.utils;
 
+import com.demoqa.driver.DriverFactory;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.OutputType;

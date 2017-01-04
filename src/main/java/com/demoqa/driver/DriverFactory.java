@@ -1,28 +1,26 @@
-package com.demoqa.utils;
+package com.demoqa.driver;
 
-import java.util.logging.Level;
-
+import com.demoqa.utils.ScreenShots;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Rule;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DriverFactory {
 
-    public static ChromeDriver driver;
+    public static RemoteWebDriver driver;
 
     public static final int EXPLICIT_TIMEOUT = 35;
 
     @Rule
     public ScreenShots rule = new ScreenShots();
 
+
     @BeforeClass
     public static void executeBeforeClass() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.setLogLevel(Level.INFO);
+        driver = ChromeBrowser.createDriver();
     }
+
 
     @AfterClass
     public static void executeAfterClass() {

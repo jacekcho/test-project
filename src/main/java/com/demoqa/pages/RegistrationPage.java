@@ -1,9 +1,9 @@
 package com.demoqa.pages;
 
-import com.demoqa.utils.DriverFactory;
 import com.demoqa.dictionary.Country;
 import com.demoqa.dictionary.Hobby;
 import com.demoqa.dictionary.MartialStatus;
+import com.demoqa.driver.DriverFactory;
 import com.demoqa.utils.PageAction;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebElement;

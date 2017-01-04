@@ -1,5 +1,6 @@
 package com.demoqa.utils;
 
+import com.demoqa.driver.DriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

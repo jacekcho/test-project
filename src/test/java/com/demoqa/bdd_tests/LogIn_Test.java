@@ -1,6 +1,6 @@
 package com.demoqa.bdd_tests;
 
-import com.demoqa.utils.DriverFactory;
+import com.demoqa.driver.DriverFactory;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -11,11 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
-
-/**
- * Created by Jacek on 2016-11-27.
- */
 public class LogIn_Test {
 
 

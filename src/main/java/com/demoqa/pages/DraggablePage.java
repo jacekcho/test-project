@@ -1,6 +1,6 @@
 package com.demoqa.pages;
 
-import com.demoqa.utils.DriverFactory;
+import com.demoqa.driver.DriverFactory;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
