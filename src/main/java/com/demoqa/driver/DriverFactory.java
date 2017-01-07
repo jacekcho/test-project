@@ -18,7 +18,7 @@ public class DriverFactory {
 
     @BeforeClass
     public static void executeBeforeClass() {
-        driver = ChromeBrowser.createDriver();
+        driver = BrowserFactory.createBrowser();
     }
 
 

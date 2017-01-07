@@ -1,14 +1,15 @@
 package com.demoqa.driver;
 
+import com.demoqa.utils.PropertiesManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class ChromeBrowser {
+public class ChromeBrowser extends BrowserFactory {
 
-    public static RemoteWebDriver createDriver() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+    @Override
+    public RemoteWebDriver create() {
+        System.setProperty("webdriver.chrome.driver", PropertiesManager.getInstance().getPatchToChrome());
         return new ChromeDriver();
     }
-
 }

@@ -1,14 +1,23 @@
 package com.demoqa.driver;
 
+import com.demoqa.utils.PropertiesManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MobileBrowser {
+public class MobileBrowser extends BrowserFactory {
+
+    @Override
+    public RemoteWebDriver create() {
+        System.setProperty("webdriver.chrome.driver", PropertiesManager.getInstance().getPatchToChrome());
+        DesiredCapabilities mobileCapability = createMobile(MobileDevice.NEXUS_7);
+        return new ChromeDriver(mobileCapability);
+    }
 
     public enum MobileDevice {
 
@@ -28,13 +37,7 @@ public class MobileBrowser {
     }
 
 
-    public static RemoteWebDriver createDriver() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        DesiredCapabilities mobileCapability = createMobile(MobileDevice.NEXUS_7);
-        return new ChromeDriver(mobileCapability);
-    }
-
-    public static DesiredCapabilities createMobile(MobileDevice mobileDevice) {
+    private static DesiredCapabilities createMobile(MobileDevice mobileDevice) {
         Map<String, String> mobileEmulation = new HashMap<>();
         mobileEmulation.put("deviceName", mobileDevice.getName());
         Map<String, Object> chromeOptions = new HashMap<>();

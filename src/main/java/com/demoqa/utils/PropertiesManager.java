@@ -55,5 +55,13 @@ public class PropertiesManager {
         return properties.getProperty("demoqa.pass");
     }
 
+    public String getBrowser() {
+        return properties.getProperty("browser");
+    }
+
+    public String getPatchToChrome() {
+        return properties.getProperty("patch.to.chrome");
+    }
+
 
 }
