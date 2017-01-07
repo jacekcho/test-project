@@ -1,6 +1,7 @@
 package com.demoqa.pages;
 
 import com.demoqa.driver.DriverFactory;
+import com.demoqa.utils.PageAction;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -14,8 +15,11 @@ public class DraggablePage {
 
     private Actions builder;
 
+    private PageAction action;
+
     public DraggablePage() {
         builder = new Actions(DriverFactory.driver);
+        action = new PageAction();
         PageFactory.initElements(DriverFactory.driver, this);
     }
 
@@ -26,7 +30,7 @@ public class DraggablePage {
     }
 
     public String getNewElementPosition() {
-        return buttonToDrag.getAttribute("style");
+        return action.getElementAttribute(buttonToDrag, "style");
     }
 
 }

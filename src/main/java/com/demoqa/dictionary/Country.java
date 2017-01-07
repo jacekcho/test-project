@@ -1,5 +1,6 @@
 package com.demoqa.dictionary;
 
+
 public enum Country {
 
     POLAND("Poland"),
@@ -12,7 +13,7 @@ public enum Country {
         this.setCountry = setCountry;
     }
 
-    public String getCountry() {
+    public String get() {
         return setCountry;
     }
 

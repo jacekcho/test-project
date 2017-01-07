@@ -11,13 +11,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Scanner;
+
+import static com.demoqa.dictionary.Hobby.CRICKET;
 
 public class RegistrationPage {
 
@@ -27,22 +24,22 @@ public class RegistrationPage {
     @FindBy(id = "name_3_lastname")
     private WebElement lastName;
 
-    @FindBy(xpath = "//input[@value = 'single']")
+    @FindBy(css = "input[value='single']")
     private WebElement martialStatusSingle;
 
-    @FindBy(xpath = "//input[@value = 'married']")
+    @FindBy(css = "input[value='married']")
     private WebElement martialStatusMarried;
 
-    @FindBy(xpath = "//input[@value = 'divorced']")
+    @FindBy(css = "input[value='divorced']")
     private WebElement martialStatusDivorced;
 
-    @FindBy(xpath = "//input[@value = 'dance']")
+    @FindBy(css = "input[value='dance']")
     private WebElement hobbyDance;
 
-    @FindBy(xpath = "//input[@value = 'reading']")
+    @FindBy(css = "input[value='reading']")
     private WebElement hobbyReading;
 
-    @FindBy(xpath = "//input[@value = 'cricket ']")
+    @FindBy(css = "input[value='cricket']")
     private WebElement hobbyCricket;
 
     @FindBy(id = "dropdown_7")
@@ -119,25 +116,26 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage setHobby(Hobby... hobbies) {
 
-    public RegistrationPage setHobby(Hobby hobby) {
-        switch (hobby) {
-            case CRICKET:
-                pageAction.jsClick(hobbyCricket);
-                break;
-            case DANCE:
-                pageAction.jsClick(hobbyDance);
-                break;
-            case READING:
-                pageAction.jsClick(hobbyReading);
-                break;
+        for (Hobby hobby : hobbies) {
+            switch (hobby) {
+                case CRICKET:
+                    pageAction.jsClick(hobbyCricket);
+                    break;
+                case DANCE:
+                    pageAction.jsClick(hobbyDance);
+                    break;
+                case READING:
+                    pageAction.jsClick(hobbyReading);
+                    break;
+            }
         }
         return this;
     }
 
-
     public RegistrationPage selectCountry(Country country) {
-        pageAction.selectByValue(countryDropdown, country.getCountry());
+        pageAction.selectByValue(countryDropdown, country.get());
         return this;
     }
 
@@ -181,6 +179,14 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage getDescriptionFromFile() {
+        pageAction.insertText(description, readFromFile("description.txt"));
+        return this;
+    }
+
+    public String getRegisteredMessage() {
+        return registeredMessage.getText();
+    }
 
     private String readFromFile(String fileName) {
         String text = "";
@@ -193,18 +199,8 @@ public class RegistrationPage {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         return text;
-    }
-
-
-    public RegistrationPage fillDescriptionFromFile() {
-        pageAction.insertText(description, readFromFile("description.txt"));
-        return this;
-    }
-
-    public String getRegisteredMessage() {
-        return registeredMessage.getText();
     }
 
 

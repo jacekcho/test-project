@@ -14,20 +14,9 @@ import static org.junit.Assert.assertThat;
 @Category(TestCategory.class)
 public class DraggableIT extends DriverFactory {
 
-
-    private DemoqaMainPage demoqaMainPage;
-
-    private DraggablePage draggablePage;
-
     private final String LEFT_POSITION = "left: %spx";
 
     private final String TOP_POSITION = "top: %spx";
-
-    @Before
-    public void executeBeforeTest() {
-        demoqaMainPage = new DemoqaMainPage();
-        draggablePage = new DraggablePage();
-    }
 
     @Test
     public void shouldDraggable() {
@@ -35,10 +24,10 @@ public class DraggableIT extends DriverFactory {
         //given
         int newLeftPosition = 130;
         int newTopPosition = 180;
-        demoqaMainPage.get();
+        DraggablePage draggablePage = new DemoqaMainPage().get().goToDraggablePage();
 
         //when
-        demoqaMainPage.goToDraggablePage().moveButtonToNewPosition(newLeftPosition, newTopPosition);
+        draggablePage.moveButtonToNewPosition(newLeftPosition, newTopPosition);
 
         //then
         assertThat(draggablePage.getNewElementPosition(), containsString(String.format(LEFT_POSITION, newLeftPosition)));

@@ -4,6 +4,7 @@ import com.demoqa.driver.DriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,7 +27,6 @@ public class PageAction {
         element.click();
     }
 
-
     public void jsClick(WebElement clickElement) {
         JavascriptExecutor executor = (JavascriptExecutor) DriverFactory.driver;
         executor.executeScript("arguments[0].click();", clickElement);
@@ -48,8 +48,12 @@ public class PageAction {
         }
     }
 
+    public String getElementAttribute(WebElement element, String attribute) {
+        return element.getAttribute(attribute);
+    }
+
     public void waitForAjax() {
-        (new WebDriverWait(DriverFactory.driver, 35)).until(new ExpectedCondition<Boolean>() {
+        wait.until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver d) {
                 JavascriptExecutor js = (JavascriptExecutor) d;
                 return (Boolean) js.executeScript("return jQuery.active == 0");
