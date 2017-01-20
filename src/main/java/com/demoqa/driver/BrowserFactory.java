@@ -1,14 +1,15 @@
 package com.demoqa.driver;
 
 import com.demoqa.utils.PropertiesManager;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public abstract class BrowserFactory {
 
-    public abstract RemoteWebDriver create();
+    public abstract ChromeDriver create();
 
 
-    public static RemoteWebDriver createBrowser() {
+    public static ChromeDriver createBrowser() {
 
         switch (PropertiesManager.getInstance().getBrowser()) {
             case "chrome":

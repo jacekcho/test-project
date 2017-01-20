@@ -8,7 +8,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class ChromeBrowser extends BrowserFactory {
 
     @Override
-    public RemoteWebDriver create() {
+    public ChromeDriver  create() {
         System.setProperty("webdriver.chrome.driver", PropertiesManager.getInstance().getPatchToChrome());
         return new ChromeDriver();
     }

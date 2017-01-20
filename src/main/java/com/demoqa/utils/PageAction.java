@@ -15,8 +15,11 @@ public class PageAction {
 
     private WebDriverWait wait;
 
+    private Actions actions;
+
     public PageAction() {
         wait = new WebDriverWait(DriverFactory.driver, DriverFactory.EXPLICIT_TIMEOUT);
+        actions = new Actions(DriverFactory.driver);
     }
 
     public void insertText(WebElement element, String value) {
@@ -50,6 +53,10 @@ public class PageAction {
 
     public String getElementAttribute(WebElement element, String attribute) {
         return element.getAttribute(attribute);
+    }
+
+    public void doubleClick(WebElement element) {
+        actions.doubleClick(element).perform();
     }
 
     public void waitForAjax() {

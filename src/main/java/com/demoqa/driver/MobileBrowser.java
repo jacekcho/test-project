@@ -13,7 +13,7 @@ import java.util.Map;
 public class MobileBrowser extends BrowserFactory {
 
     @Override
-    public RemoteWebDriver create() {
+    public ChromeDriver create() {
         System.setProperty("webdriver.chrome.driver", PropertiesManager.getInstance().getPatchToChrome());
         DesiredCapabilities mobileCapability = createMobile(MobileDevice.NEXUS_7);
         return new ChromeDriver(mobileCapability);
