@@ -24,8 +24,11 @@ public class DraggablePage {
     }
 
     public DraggablePage moveButtonToNewPosition(int left, int top) {
-        Action dragAndDrop = builder.clickAndHold(buttonToDrag).moveByOffset(left, top).release().build();
-        dragAndDrop.perform();
+        builder.clickAndHold(buttonToDrag)
+                .moveByOffset(left, top)
+                .release()
+                .build()
+                .perform();
         return this;
     }
 

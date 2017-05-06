@@ -7,7 +7,7 @@ public class PropertiesManager {
 
     private static final String FRAMEWORK_PROPERTIES = "framework.properties";
 
-    private static PropertiesManager propertiesManager;
+    private static PropertiesManager PROPERTIES_MANAGER;
 
     private final Properties properties;
 
@@ -23,10 +23,10 @@ public class PropertiesManager {
 
 
     public static PropertiesManager getInstance() {
-        if (null == propertiesManager) {
-            propertiesManager = new PropertiesManager();
+        if (null == PROPERTIES_MANAGER) {
+            PROPERTIES_MANAGER = new PropertiesManager();
         }
-        return propertiesManager;
+        return PROPERTIES_MANAGER;
     }
 
     private Properties loadProperties() throws IOException {
@@ -55,12 +55,32 @@ public class PropertiesManager {
         return properties.getProperty("demoqa.pass");
     }
 
-    public String getBrowser() {
+    public String getBrowserTypeForTest() {
         return properties.getProperty("browser");
     }
 
-    public String getPatchToChrome() {
-        return properties.getProperty("patch.to.chrome");
+    public String getChromeDriverWinPath() {
+        return properties.getProperty("chromedriver.win.path");
+    }
+
+    public String getChromeDriverOxPath() {
+        return properties.getProperty("chromedriver.ox.path");
+    }
+
+    public String getChromeDriverUnixPath() {
+        return properties.getProperty("chromedriver.unix.path");
+    }
+
+    public String getGeckoDriverWinPath() {
+        return properties.getProperty("geckodriver.win.path");
+    }
+
+    public String getGeckoDriverOxPath() {
+        return properties.getProperty("geckodriver.ox.path");
+    }
+
+    public String getGeckoDriverUnixPath() {
+        return properties.getProperty("geckodriver.unix.path");
     }
 
 

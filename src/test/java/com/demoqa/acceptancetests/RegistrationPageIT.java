@@ -19,9 +19,9 @@ public class RegistrationPageIT extends DriverFactory {
 
     @Test
     public void shouldRegisterNewUser() {
-
         //given
-        RegistrationPage registrationPage = new DemoqaMainPage().get().goToRegistrationPage();
+        RegistrationPage registrationPage = new DemoqaMainPage().get()
+                .goToRegistrationPage();
 
         registrationPage.setFirstName("Jacek")
                 .setLastName("Nowak")
@@ -41,9 +41,6 @@ public class RegistrationPageIT extends DriverFactory {
 
         //then
         assertThat(registrationPage.getRegisteredMessage(), containsString(CONFIRMATION));
-
-
     }
-
 
 }

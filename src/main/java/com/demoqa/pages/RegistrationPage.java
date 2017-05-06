@@ -167,8 +167,8 @@ public class RegistrationPage {
     }
 
     public RegistrationPage uploadAvatar() {
-        String pathToAvatar = new File("src/main/resources/picture.gif").getAbsolutePath();
-        uploadProfilePicture.sendKeys(pathToAvatar);
+        File avatar = new File("src/main/resources/picture.gif");
+        pageAction.uploadFile(uploadProfilePicture, avatar);
         return this;
     }
 

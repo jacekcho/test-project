@@ -6,20 +6,20 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public abstract class BrowserFactory {
 
-    public abstract ChromeDriver create();
+    public abstract RemoteWebDriver create();
 
+    public static RemoteWebDriver createDriver() {
 
-    public static ChromeDriver createBrowser() {
-
-        switch (PropertiesManager.getInstance().getBrowser()) {
+        switch (PropertiesManager.getInstance().getBrowserTypeForTest()) {
+            case "firefox":
+                return new FireFoxBrowser().create();
             case "chrome":
                 return new ChromeBrowser().create();
             case "mobile":
                 return new MobileBrowser().create();
             default:
-                throw new NullPointerException("Set proper browser in framework.properties");
+                throw new NullPointerException("Set correct value for 'browser' in framework.propertis");
         }
-
     }
 
 }
