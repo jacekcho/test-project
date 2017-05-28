@@ -1,9 +1,8 @@
-package com.demoqa.pages;
+package com.demoqa.pages.demoqa;
 
 import com.demoqa.driver.DriverFactory;
 import com.demoqa.utils.PageAction;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;

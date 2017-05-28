@@ -83,5 +83,8 @@ public class PropertiesManager {
         return properties.getProperty("geckodriver.unix.path");
     }
 
+    public String getAutomationPracticeUrl() {
+        return properties.getProperty("automationpractice.url");
+    }
 
 }

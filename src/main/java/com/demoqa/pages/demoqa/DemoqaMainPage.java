@@ -1,4 +1,4 @@
-package com.demoqa.pages;
+package com.demoqa.pages.demoqa;
 
 import com.demoqa.driver.DriverFactory;
 import com.demoqa.utils.PageAction;
@@ -39,7 +39,6 @@ public class DemoqaMainPage extends SlowLoadableComponent<DemoqaMainPage> {
         pageAction.jsClick(menuDraggable);
         return new DraggablePage();
     }
-
 
     @Override
     protected void load() {

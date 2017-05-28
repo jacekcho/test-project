@@ -2,9 +2,8 @@ package com.demoqa.acceptancetests;
 
 import com.demoqa.category.TestCategory;
 import com.demoqa.driver.DriverFactory;
-import com.demoqa.pages.DemoqaMainPage;
-import com.demoqa.pages.DraggablePage;
-import org.junit.Before;
+import com.demoqa.pages.demoqa.DemoqaMainPage;
+import com.demoqa.pages.demoqa.DraggablePage;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 

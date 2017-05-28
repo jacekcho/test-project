@@ -1,4 +1,4 @@
-package com.demoqa.pages;
+package com.demoqa.pages.demoqa;
 
 import com.demoqa.dictionary.Country;
 import com.demoqa.dictionary.Hobby;
@@ -178,7 +178,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage getDescriptionFromFile() {
-        pageAction.insertText(description, readFromFile("files/description.txt"));
+        pageAction.insertText(description, readFromFile("description.txt"));
         return this;
     }
 
