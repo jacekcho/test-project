@@ -10,8 +10,8 @@ public class AutomationPracticeLoginPage {
     @FindBy(id = "email_create")
     private WebElement emailInput;
 
-    @FindBy(id = "SubmitCreate")
-    private WebElement submitCreate;
+    @FindBy(id = "Submit")
+    private WebElement createAnAccount;
 
     public AutomationPracticeLoginPage() {
         PageFactory.initElements(DriverFactory.driver, this);
@@ -19,7 +19,7 @@ public class AutomationPracticeLoginPage {
 
     public AutomationPracticeAccountCreationPage goToRegisterNewAccountPage(String userEmail) {
         fillNewUserEmail(userEmail);
-        submitCreate.click();
+        createAnAccount.click();
         return new AutomationPracticeAccountCreationPage();
     }
 
