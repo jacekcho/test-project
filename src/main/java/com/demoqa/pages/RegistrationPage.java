@@ -14,8 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-import static com.demoqa.dictionary.Hobby.CRICKET;
-
 public class RegistrationPage {
 
     @FindBy(id = "name_3_firstname")
@@ -167,7 +165,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage uploadAvatar() {
-        File avatar = new File("src/main/resources/picture.gif");
+        File avatar = new File("src/main/resources/files/picture.gif");
         pageAction.uploadFile(uploadProfilePicture, avatar);
         return this;
     }
@@ -180,7 +178,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage getDescriptionFromFile() {
-        pageAction.insertText(description, readFromFile("description.txt"));
+        pageAction.insertText(description, readFromFile("files/description.txt"));
         return this;
     }
 
@@ -190,7 +188,7 @@ public class RegistrationPage {
 
     private String readFromFile(String fileName) {
         String text = "";
-        File file = new File(String.format("src/main/resources/%s", fileName));
+        File file = new File(String.format("src/main/resources/files/%s", fileName));
 
         try {
             for (String line : FileUtils.readLines(file, "UTF-8")) {

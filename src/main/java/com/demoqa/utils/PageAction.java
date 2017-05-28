@@ -50,7 +50,6 @@ public class PageAction {
         }
     }
 
-
     public void selectByValue(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByValue(value);
