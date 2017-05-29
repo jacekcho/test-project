@@ -27,7 +27,6 @@ public class ChromeBrowser extends BrowserFactory {
         }
 
         System.setProperty("webdriver.chrome.driver", pathToDriver);
-
         return new ChromeDriver();
     }
 }

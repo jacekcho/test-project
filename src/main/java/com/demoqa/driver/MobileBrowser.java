@@ -30,11 +30,12 @@ public class MobileBrowser extends BrowserFactory {
             throw new NullPointerException("Path to Chrome driver wasn't set");
         }
 
+        System.setProperty("webdriver.chrome.driver", pathToDriver);
         return new ChromeDriver(capabilities());
     }
 
     private DesiredCapabilities capabilities() {
-        return createMobile(MobileDevice.SAMSUNG_GALAXY_S_3);
+        return createMobile(MobileDevice.NEXUS_7);
     }
 
     private DesiredCapabilities createMobile(MobileDevice mobileDevice) {
