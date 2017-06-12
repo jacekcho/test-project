@@ -7,7 +7,6 @@ import com.demoqa.dictionary.Hobby;
 import com.demoqa.dictionary.MartialStatus;
 import com.demoqa.pages.demoqa.DemoqaMainPage;
 import com.demoqa.pages.demoqa.RegistrationPage;
-import com.demoqa.utils.PropertiesManager;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.containsString;
