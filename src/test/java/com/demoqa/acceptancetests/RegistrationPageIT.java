@@ -19,7 +19,7 @@ public class RegistrationPageIT extends DriverFactory {
 
     @Test
     public void shouldRegisterNewUser() {
-        //given
+        // given
         RegistrationPage registrationPage = new DemoqaMainPage().get()
                 .goToRegistrationPage();
 
@@ -34,12 +34,12 @@ public class RegistrationPageIT extends DriverFactory {
                 .uploadAvatar()
                 .setDateOfBirth(8, 4, 1985)
                 .getDescriptionFromFile()
-                .setPassword(PropertiesManager.getInstance().getDemoqapass());
+                .setPassword(CONFIG.getDemoqapass());
 
-        //when
+        // when
         registrationPage.submitRegistratiorn();
 
-        //then
+        // then
         assertThat(registrationPage.getRegisteredMessage(), containsString(CONFIRMATION));
     }
 

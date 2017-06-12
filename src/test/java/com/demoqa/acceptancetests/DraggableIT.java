@@ -19,16 +19,15 @@ public class DraggableIT extends DriverFactory {
 
     @Test
     public void shouldDraggable() {
-
-        //given
+        // given
         int newLeftPosition = 130;
         int newTopPosition = 180;
         DraggablePage draggablePage = new DemoqaMainPage().get().goToDraggablePage();
 
-        //when
+        // when
         draggablePage.moveButtonToNewPosition(newLeftPosition, newTopPosition);
 
-        //then
+        // then
         assertThat(draggablePage.getNewElementPosition(), containsString(String.format(LEFT_POSITION, newLeftPosition)));
         assertThat(draggablePage.getNewElementPosition(), containsString(String.format(TOP_POSITION, newTopPosition)));
 

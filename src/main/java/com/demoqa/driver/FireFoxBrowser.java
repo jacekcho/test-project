@@ -1,34 +1,16 @@
 package com.demoqa.driver;
 
-import com.demoqa.utils.PropertiesManager;
-import com.google.common.base.Strings;
-import org.apache.commons.lang.SystemUtils;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class FireFoxBrowser extends BrowserFactory {
-
-    private FirefoxProfile profile;
+public class FireFoxBrowser implements BrowserType<FirefoxDriver> {
 
     @Override
-    public RemoteWebDriver create() {
-        String pathToDriver = null;
-        if (SystemUtils.IS_OS_WINDOWS) {
-            pathToDriver = PropertiesManager.getInstance().getGeckoDriverWinPath();
-        } else if (SystemUtils.IS_OS_MAC) {
-            pathToDriver = PropertiesManager.getInstance().getGeckoDriverOxPath();
-        } else if (SystemUtils.IS_OS_UNIX) {
-            pathToDriver = PropertiesManager.getInstance().getGeckoDriverUnixPath();
-        }
-
-        if (Strings.isNullOrEmpty(pathToDriver)) {
-            throw new NullPointerException("Path to FireFox driver wasn't set");
-        }
-
-        System.setProperty("webdriver.gecko.driver", pathToDriver);
+    public FirefoxDriver create() {
+        FirefoxDriverManager.getInstance().setup();
         return new FirefoxDriver(capabilities(fireFoxProfile()));
     }
 

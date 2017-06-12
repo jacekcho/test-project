@@ -52,7 +52,9 @@ public class DriverFactory {
 
     @AfterClass
     public static void executeAfterClass() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
 

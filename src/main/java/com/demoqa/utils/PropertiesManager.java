@@ -11,7 +11,6 @@ public class PropertiesManager {
 
     private final Properties properties;
 
-
     private PropertiesManager() {
         System.out.println("FRAMEWORK_PROPERTIES: " + FRAMEWORK_PROPERTIES);
         try {
@@ -20,7 +19,6 @@ public class PropertiesManager {
             throw new RuntimeException(e);
         }
     }
-
 
     public static PropertiesManager getInstance() {
         if (null == PROPERTIES_MANAGER) {
@@ -57,30 +55,6 @@ public class PropertiesManager {
 
     public String getBrowserTypeForTest() {
         return properties.getProperty("browser");
-    }
-
-    public String getChromeDriverWinPath() {
-        return properties.getProperty("chromedriver.win.path");
-    }
-
-    public String getChromeDriverOxPath() {
-        return properties.getProperty("chromedriver.ox.path");
-    }
-
-    public String getChromeDriverUnixPath() {
-        return properties.getProperty("chromedriver.unix.path");
-    }
-
-    public String getGeckoDriverWinPath() {
-        return properties.getProperty("geckodriver.win.path");
-    }
-
-    public String getGeckoDriverOxPath() {
-        return properties.getProperty("geckodriver.ox.path");
-    }
-
-    public String getGeckoDriverUnixPath() {
-        return properties.getProperty("geckodriver.unix.path");
     }
 
     public String getAutomationPracticeUrl() {

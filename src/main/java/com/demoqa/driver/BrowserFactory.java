@@ -1,12 +1,10 @@
 package com.demoqa.driver;
 
 import com.demoqa.utils.PropertiesManager;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public abstract class BrowserFactory {
 
-    public abstract RemoteWebDriver create();
 
     public static RemoteWebDriver createDriver() {
 
@@ -17,6 +15,8 @@ public abstract class BrowserFactory {
                 return new ChromeBrowser().create();
             case "mobile":
                 return new MobileBrowser().create();
+            case "ie":
+                return new InternetExplorerBrowser().create();
             default:
                 throw new NullPointerException("Set correct value for 'browser' in framework.propertis");
         }

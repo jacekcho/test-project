@@ -14,15 +14,15 @@ import static org.junit.Assert.assertThat;
 
 public class TryToFindBugsIT extends DriverFactory {
 
-    String userEmail = Generators.randomEmail();
-    boolean isFemale = true;
-    String firstName = Generators.randomFirstName();
-    String lastName = Generators.randomLastName();
-    String password = "QW12qw12";
-    String address = Generators.randomStreetAddress();
-    String city = Generators.randomCity();
-    String phone = Generators.randomPhoneNumber();
-    String postCode = Generators.randomPostCode();
+    private String userEmail = Generators.randomEmail();
+    private boolean isFemale = true;
+    private String firstName = Generators.randomFirstName();
+    private String lastName = Generators.randomLastName();
+    private String password = "QW12qw12";
+    private String address = Generators.randomStreetAddress();
+    private String city = Generators.randomCity();
+    private String phone = Generators.randomPhoneNumber();
+    private String postCode = Generators.randomPostCode();
 
     @Test
     public void shouldCreateAccount() {
