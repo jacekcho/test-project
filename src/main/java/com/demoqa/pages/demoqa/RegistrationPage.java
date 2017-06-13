@@ -81,7 +81,6 @@ public class RegistrationPage {
 
     private PageAction pageAction;
 
-
     private HashMap<MartialStatus, WebElement> aggregationMartialStatusAndWebElements = new HashMap<>();
 
     public RegistrationPage() {
@@ -90,13 +89,11 @@ public class RegistrationPage {
         initAggregationMartialStatusAndWebElements();
     }
 
-
     private void initAggregationMartialStatusAndWebElements() {
         aggregationMartialStatusAndWebElements.put(MartialStatus.SINGLE, martialStatusSingle);
         aggregationMartialStatusAndWebElements.put(MartialStatus.MARRIED, martialStatusMarried);
         aggregationMartialStatusAndWebElements.put(MartialStatus.DIVORCED, martialStatusDivorced);
     }
-
 
     public RegistrationPage setFirstName(String name) {
         pageAction.insertText(firstName, name);
@@ -107,7 +104,6 @@ public class RegistrationPage {
         pageAction.insertText(lastName, surname);
         return this;
     }
-
 
     public RegistrationPage setMaritalStatus(MartialStatus status) {
         pageAction.jsClick(aggregationMartialStatusAndWebElements.get(status));

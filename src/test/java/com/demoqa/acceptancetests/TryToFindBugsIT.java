@@ -7,11 +7,13 @@ import com.demoqa.pages.automationpractice.AutomationPracticeLoginPage;
 import com.demoqa.pages.automationpractice.AutomationPracticeMainPage;
 import com.demoqa.pages.automationpractice.AutomationPracticeMyAccountPage;
 import com.demoqa.utils.Generators;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+@Ignore
 public class TryToFindBugsIT extends DriverFactory {
 
     private String userEmail = Generators.randomEmail();
