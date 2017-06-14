@@ -13,6 +13,11 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * Scenariusz testowy w którym celowo umieszczono błędy
+ * W celu uruchomienia testu należy wykasować linijkę zawierającą adnotacje: @Ignore
+ */
+
 @Ignore
 public class TryToFindBugsIT extends SeleniumTestBase {
 
