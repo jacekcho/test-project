@@ -1,6 +1,6 @@
 package com.demoqa.pages.demoqa;
 
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.utils.PageAction;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -17,9 +17,9 @@ public class DraggablePage {
     private PageAction action;
 
     public DraggablePage() {
-        builder = new Actions(DriverFactory.driver);
+        builder = new Actions(SeleniumTestBase.driver);
         action = new PageAction();
-        PageFactory.initElements(DriverFactory.driver, this);
+        PageFactory.initElements(SeleniumTestBase.driver, this);
     }
 
     public DraggablePage moveButtonToNewPosition(int left, int top) {

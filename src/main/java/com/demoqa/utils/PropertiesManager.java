@@ -1,5 +1,7 @@
 package com.demoqa.utils;
 
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -11,8 +13,10 @@ public class PropertiesManager {
 
     private final Properties properties;
 
+    private final static Logger LOGGER = Logger.getLogger(PropertiesManager.class);
+
     private PropertiesManager() {
-        System.out.println("FRAMEWORK_PROPERTIES: " + FRAMEWORK_PROPERTIES);
+        LOGGER.info("FRAMEWORK_PROPERTIES: " + FRAMEWORK_PROPERTIES);
         try {
             this.properties = loadProperties();
         } catch (Exception e) {
@@ -35,12 +39,12 @@ public class PropertiesManager {
     }
 
     private void overwritePropertiesIfSystemDefined(Properties localProperties) {
-        System.out.println("\nChecking if some properties are overwritten...\n");
+        LOGGER.info("Checking if some properties are overwritten...\n");
         for (String key : localProperties.stringPropertyNames()) {
             String systemProperty = System.getProperties().getProperty(key);
             if (systemProperty != null) {
                 String oldValue = (String) localProperties.setProperty(key, systemProperty);
-                System.out.println(String.format("Property %s overwritten from %s to %s\n", key, oldValue, systemProperty));
+                LOGGER.info(String.format("Property %s overwritten from %s to %s\n", key, oldValue, systemProperty));
             }
         }
     }

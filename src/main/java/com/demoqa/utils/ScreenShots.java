@@ -1,6 +1,7 @@
 package com.demoqa.utils;
 
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
+import org.apache.log4j.Logger;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.OutputType;
@@ -13,8 +14,9 @@ import java.util.Calendar;
 
 public class ScreenShots extends TestWatcher {
 
-
     private final SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+
+    private final static Logger LOGGER = Logger.getLogger(ScreenShots.class);
 
     @Override
     protected void failed(Throwable e, Description description) {
@@ -23,13 +25,13 @@ public class ScreenShots extends TestWatcher {
             return;
         }
 
-        if (DriverFactory.driver instanceof TakesScreenshot) {
+        if (SeleniumTestBase.driver instanceof TakesScreenshot) {
             byte[] screenshot = takeScreenshot();
 
             File dir = createDestDir(description.getClassName());
             String file = createFileName(description.getMethodName());
             save(screenshot, dir, file);
-            System.out.println(String.format("Failed test: %s", description.getDisplayName()));
+            LOGGER.info(String.format("Failed test: %s", description.getDisplayName()));
         }
     }
 
@@ -53,7 +55,7 @@ public class ScreenShots extends TestWatcher {
     }
 
     private byte[] takeScreenshot() {
-        return ((TakesScreenshot) DriverFactory.driver).getScreenshotAs(OutputType.BYTES);
+        return ((TakesScreenshot) SeleniumTestBase.driver).getScreenshotAs(OutputType.BYTES);
     }
 
     private void save(byte[] bytes, File dir, String file) {

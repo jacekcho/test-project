@@ -1,13 +1,10 @@
 package com.demoqa.pages.automationpractice;
 
-import com.demoqa.driver.DriverFactory;
-import com.demoqa.pages.demoqa.DemoqaMainPage;
-import com.demoqa.utils.PageAction;
+import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.utils.PropertiesManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Clock;
 import org.openqa.selenium.support.ui.SlowLoadableComponent;
 import org.openqa.selenium.support.ui.SystemClock;
 
@@ -19,8 +16,8 @@ public class AutomationPracticeMainPage extends SlowLoadableComponent<Automation
     private WebElement login;
 
     public AutomationPracticeMainPage() {
-        super(new SystemClock(), DriverFactory.EXPLICIT_TIMEOUT);
-        PageFactory.initElements(DriverFactory.driver, this);
+        super(new SystemClock(), SeleniumTestBase.EXPLICIT_TIMEOUT);
+        PageFactory.initElements(SeleniumTestBase.driver, this);
     }
 
     public AutomationPracticeLoginPage goToLoginPage() {
@@ -30,12 +27,12 @@ public class AutomationPracticeMainPage extends SlowLoadableComponent<Automation
 
     @Override
     protected void load() {
-        DriverFactory.driver.get(PropertiesManager.getInstance().getAutomationPracticeUrl());
+        SeleniumTestBase.driver.get(PropertiesManager.getInstance().getAutomationPracticeUrl());
     }
 
     @Override
     protected void isLoaded() throws Error {
-        String url = DriverFactory.driver.getCurrentUrl();
+        String url = SeleniumTestBase.driver.getCurrentUrl();
         assertTrue("Not on the main page: " + url, url.equals(PropertiesManager.getInstance().getAutomationPracticeUrl() + "index.php"));
     }
 }

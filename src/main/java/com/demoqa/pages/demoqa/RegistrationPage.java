@@ -3,7 +3,7 @@ package com.demoqa.pages.demoqa;
 import com.demoqa.dictionary.Country;
 import com.demoqa.dictionary.Hobby;
 import com.demoqa.dictionary.MartialStatus;
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.utils.PageAction;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebElement;
@@ -17,10 +17,10 @@ import java.util.HashMap;
 public class RegistrationPage {
 
     @FindBy(id = "name_3_firstname")
-    private WebElement firstName;
+    private WebElement firstNameInput;
 
     @FindBy(id = "name_3_lastname")
-    private WebElement lastName;
+    private WebElement lastNameInput;
 
     @FindBy(css = "input[value='single']")
     private WebElement martialStatusSingle;
@@ -85,23 +85,17 @@ public class RegistrationPage {
 
     public RegistrationPage() {
         pageAction = new PageAction();
-        PageFactory.initElements(DriverFactory.driver, this);
+        PageFactory.initElements(SeleniumTestBase.driver, this);
         initAggregationMartialStatusAndWebElements();
     }
 
-    private void initAggregationMartialStatusAndWebElements() {
-        aggregationMartialStatusAndWebElements.put(MartialStatus.SINGLE, martialStatusSingle);
-        aggregationMartialStatusAndWebElements.put(MartialStatus.MARRIED, martialStatusMarried);
-        aggregationMartialStatusAndWebElements.put(MartialStatus.DIVORCED, martialStatusDivorced);
-    }
-
     public RegistrationPage setFirstName(String name) {
-        pageAction.insertText(firstName, name);
+        pageAction.insertText(firstNameInput, name);
         return this;
     }
 
     public RegistrationPage setLastName(String surname) {
-        pageAction.insertText(lastName, surname);
+        pageAction.insertText(lastNameInput, surname);
         return this;
     }
 
@@ -110,20 +104,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setHobby(Hobby... hobbies) {
-
+    public RegistrationPage setHobbies(Hobby... hobbies) {
         for (Hobby hobby : hobbies) {
-            switch (hobby) {
-                case CRICKET:
-                    pageAction.jsClick(hobbyCricket);
-                    break;
-                case DANCE:
-                    pageAction.jsClick(hobbyDance);
-                    break;
-                case READING:
-                    pageAction.jsClick(hobbyReading);
-                    break;
-            }
+            setHobby(hobby);
         }
         return this;
     }
@@ -180,6 +163,26 @@ public class RegistrationPage {
 
     public String getRegisteredMessage() {
         return registeredMessage.getText();
+    }
+
+    private void initAggregationMartialStatusAndWebElements() {
+        aggregationMartialStatusAndWebElements.put(MartialStatus.SINGLE, martialStatusSingle);
+        aggregationMartialStatusAndWebElements.put(MartialStatus.MARRIED, martialStatusMarried);
+        aggregationMartialStatusAndWebElements.put(MartialStatus.DIVORCED, martialStatusDivorced);
+    }
+
+    private void setHobby(Hobby hobby) {
+        switch (hobby) {
+            case CRICKET:
+                pageAction.jsClick(hobbyCricket);
+                break;
+            case DANCE:
+                pageAction.jsClick(hobbyDance);
+                break;
+            case READING:
+                pageAction.jsClick(hobbyReading);
+                break;
+        }
     }
 
     private String readFromFile(String fileName) {

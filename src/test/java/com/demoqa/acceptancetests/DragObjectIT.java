@@ -1,7 +1,7 @@
 package com.demoqa.acceptancetests;
 
 import com.demoqa.category.TestCategory;
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.pages.demoqa.DemoqaMainPage;
 import com.demoqa.pages.demoqa.DraggablePage;
 import org.junit.Test;
@@ -11,18 +11,19 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
 @Category(TestCategory.class)
-public class DraggableIT extends DriverFactory {
+public class DragObjectIT extends SeleniumTestBase {
 
     private final String LEFT_POSITION = "left: %spx";
 
     private final String TOP_POSITION = "top: %spx";
 
     @Test
-    public void shouldDraggable() {
+    public void shouldDragRectangle() {
         // given
         int newLeftPosition = 130;
         int newTopPosition = 180;
-        DraggablePage draggablePage = new DemoqaMainPage().get().goToDraggablePage();
+        DraggablePage draggablePage = new DemoqaMainPage().get()
+                .goToDraggablePage();
 
         // when
         draggablePage.moveButtonToNewPosition(newLeftPosition, newTopPosition);

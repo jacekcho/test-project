@@ -1,6 +1,6 @@
 package com.demoqa.pages.automationpractice;
 
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,7 +14,7 @@ public class AutomationPracticeLoginPage {
     private WebElement createAnAccount;
 
     public AutomationPracticeLoginPage() {
-        PageFactory.initElements(DriverFactory.driver, this);
+        PageFactory.initElements(SeleniumTestBase.driver, this);
     }
 
     public AutomationPracticeAccountCreationPage goToRegisterNewAccountPage(String userEmail) {

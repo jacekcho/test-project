@@ -1,12 +1,11 @@
 package com.demoqa.utils;
 
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -22,8 +21,8 @@ public class PageAction {
     private Actions actions;
 
     public PageAction() {
-        wait = new WebDriverWait(DriverFactory.driver, DriverFactory.EXPLICIT_TIMEOUT);
-        actions = new Actions(DriverFactory.driver);
+        wait = new WebDriverWait(SeleniumTestBase.driver, SeleniumTestBase.EXPLICIT_TIMEOUT);
+        actions = new Actions(SeleniumTestBase.driver);
     }
 
     public void insertText(WebElement element, String value) {
@@ -39,7 +38,7 @@ public class PageAction {
     }
 
     public void jsClick(WebElement clickElement) {
-        JavascriptExecutor executor = (JavascriptExecutor) DriverFactory.driver;
+        JavascriptExecutor executor = (JavascriptExecutor) SeleniumTestBase.driver;
         executor.executeScript("arguments[0].click();", clickElement);
     }
 
@@ -68,8 +67,8 @@ public class PageAction {
     }
 
     public void switchToNewWindow() {
-        for (String winHandle : DriverFactory.driver.getWindowHandles()) {
-            DriverFactory.driver.switchTo().window(winHandle);
+        for (String winHandle : SeleniumTestBase.driver.getWindowHandles()) {
+            SeleniumTestBase.driver.switchTo().window(winHandle);
         }
     }
 

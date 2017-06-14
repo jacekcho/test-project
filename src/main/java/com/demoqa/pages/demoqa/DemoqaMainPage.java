@@ -1,6 +1,6 @@
 package com.demoqa.pages.demoqa;
 
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.utils.PageAction;
 import com.demoqa.utils.PropertiesManager;
 import org.openqa.selenium.WebElement;
@@ -19,21 +19,18 @@ public class DemoqaMainPage extends SlowLoadableComponent<DemoqaMainPage> {
     @FindBy(linkText = "Draggable")
     private WebElement menuDraggable;
 
-
     private PageAction pageAction;
 
     public DemoqaMainPage() {
-        super(new SystemClock(), DriverFactory.EXPLICIT_TIMEOUT);
-        PageFactory.initElements(DriverFactory.driver, this);
+        super(new SystemClock(), SeleniumTestBase.EXPLICIT_TIMEOUT);
+        PageFactory.initElements(SeleniumTestBase.driver, this);
         pageAction = new PageAction();
     }
-
 
     public RegistrationPage goToRegistrationPage() {
         pageAction.jsClick(menuRegistration);
         return new RegistrationPage();
     }
-
 
     public DraggablePage goToDraggablePage() {
         pageAction.jsClick(menuDraggable);
@@ -42,12 +39,12 @@ public class DemoqaMainPage extends SlowLoadableComponent<DemoqaMainPage> {
 
     @Override
     protected void load() {
-        DriverFactory.driver.get(PropertiesManager.getInstance().getDemoqaUrl());
+        SeleniumTestBase.driver.get(PropertiesManager.getInstance().getDemoqaUrl());
     }
 
     @Override
     protected void isLoaded() throws Error {
-        String url = DriverFactory.driver.getCurrentUrl();
+        String url = SeleniumTestBase.driver.getCurrentUrl();
         assertTrue("Not on the main page: " + url, url.equals(PropertiesManager.getInstance().getDemoqaUrl()));
     }
 }

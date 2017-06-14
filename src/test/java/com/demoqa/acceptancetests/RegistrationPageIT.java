@@ -1,6 +1,6 @@
 package com.demoqa.acceptancetests;
 
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.utils.Generators;
 import com.demoqa.dictionary.Country;
 import com.demoqa.dictionary.Hobby;
@@ -12,7 +12,17 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
-public class RegistrationPageIT extends DriverFactory {
+public class RegistrationPageIT extends SeleniumTestBase {
+
+    private String firstName = Generators.randomFirstName();
+    private String lastName = Generators.randomLastName();
+    private MartialStatus martialStatus = MartialStatus.MARRIED;
+    private Hobby[] hobbies = {Hobby.DANCE, Hobby.READING};
+    private Country country = Country.POLAND;
+    private String phone = Generators.randomPhoneNumber();
+    private String email = Generators.randomEmail();
+    private String password = CONFIG.getDemoqapass();
+
 
     private final String CONFIRMATION = "Thank you for your registration";
 
@@ -22,18 +32,18 @@ public class RegistrationPageIT extends DriverFactory {
         RegistrationPage registrationPage = new DemoqaMainPage().get()
                 .goToRegistrationPage();
 
-        registrationPage.setFirstName(Generators.randomFirstName())
-                .setLastName(Generators.randomLastName())
-                .setMaritalStatus(MartialStatus.MARRIED)
-                .setHobby(Hobby.DANCE, Hobby.READING)
-                .selectCountry(Country.POLAND)
-                .setPhoneNumber(Generators.randomPhoneNumber())
-                .setUserName(Generators.randomFirstName())
-                .setEmail(Generators.randomEmail())
+        registrationPage.setFirstName(firstName)
+                .setLastName(lastName)
+                .setMaritalStatus(martialStatus)
+                .setHobbies(hobbies)
+                .selectCountry(country)
+                .setPhoneNumber(phone)
+                .setUserName(firstName)
+                .setEmail(email)
                 .uploadAvatar()
                 .setDateOfBirth(8, 4, 1985)
                 .getDescriptionFromFile()
-                .setPassword(CONFIG.getDemoqapass());
+                .setPassword(password);
 
         // when
         registrationPage.submitRegistratiorn();

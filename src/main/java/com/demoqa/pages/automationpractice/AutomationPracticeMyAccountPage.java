@@ -1,16 +1,16 @@
 package com.demoqa.pages.automationpractice;
 
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
 import org.openqa.selenium.support.PageFactory;
 
 public class AutomationPracticeMyAccountPage {
 
     public AutomationPracticeMyAccountPage() {
-        PageFactory.initElements(DriverFactory.driver, this);
+        PageFactory.initElements(SeleniumTestBase.driver, this);
     }
 
     public String getPageTittle() {
-        return DriverFactory.driver.getCurrentUrl();
+        return SeleniumTestBase.driver.getCurrentUrl();
     }
 
 }

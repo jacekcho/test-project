@@ -1,7 +1,7 @@
 package com.demoqa.acceptancetests;
 
 import com.demoqa.dictionary.State;
-import com.demoqa.driver.DriverFactory;
+import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.pages.automationpractice.AutomationPracticeAccountCreationPage;
 import com.demoqa.pages.automationpractice.AutomationPracticeLoginPage;
 import com.demoqa.pages.automationpractice.AutomationPracticeMainPage;
@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 @Ignore
-public class TryToFindBugsIT extends DriverFactory {
+public class TryToFindBugsIT extends SeleniumTestBase {
 
     private String userEmail = Generators.randomEmail();
     private boolean isFemale = true;
