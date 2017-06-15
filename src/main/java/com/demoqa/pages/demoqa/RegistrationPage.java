@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class RegistrationPage {
 
@@ -77,6 +78,12 @@ public class RegistrationPage {
     @FindBy(id = "description")
     private WebElement descriptionInput;
 
+    @FindBy(className = "legend_txt")
+    private List<WebElement> errorMessageCount;
+
+    @FindBy(className = "legend_txt")
+    private WebElement errorMessage;
+
     private PageAction pageAction;
 
     private HashMap<MartialStatus, WebElement> aggregationMartialStatusAndWebElements = new HashMap<>();
@@ -135,9 +142,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage submitRegistratiorn() {
+    public RegistrationPage submitRegistration() {
         pageAction.jsClick(submit);
-        pageAction.waitForVisibilityOfWebElement(registeredMessage);
         return this;
     }
 
@@ -158,9 +164,18 @@ public class RegistrationPage {
         return this;
     }
 
-    public String getRegisteredMessage() {
+    public String getConfirmation() {
         return registeredMessage.getText();
     }
+
+    public String getErrorMessage() {
+        return errorMessage.getText();
+    }
+
+    public int getErrorMessageCount() {
+        return errorMessageCount.size();
+    }
+
 
     private void initAggregationMartialStatusAndWebElements() {
         aggregationMartialStatusAndWebElements.put(MartialStatus.SINGLE, martialStatusSingle);

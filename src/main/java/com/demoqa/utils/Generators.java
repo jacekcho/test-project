@@ -2,7 +2,6 @@ package com.demoqa.utils;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Locale;
 import java.util.Random;
@@ -74,10 +73,6 @@ public class Generators {
 
     public static String randomBuildingNumber() {
         return faker.address().buildingNumber();
-    }
-
-    public static String randomTrackingNumber() {
-        return RandomStringUtils.randomNumeric(24);
     }
 
     public static String generateNip() {
