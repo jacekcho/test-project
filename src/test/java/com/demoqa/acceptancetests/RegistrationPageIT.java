@@ -1,6 +1,7 @@
 package com.demoqa.acceptancetests;
 
 import com.demoqa.driver.SeleniumTestBase;
+import com.demoqa.utils.Files;
 import com.demoqa.utils.Generators;
 import com.demoqa.dictionary.Country;
 import com.demoqa.dictionary.Hobby;
@@ -22,7 +23,8 @@ public class RegistrationPageIT extends SeleniumTestBase {
     private String phone = Generators.randomPhoneNumber();
     private String email = Generators.randomEmail();
     private String password = CONFIG.getDemoqapass();
-
+    private String description = new Files().getTextFromFile(CONFIG.getPathToDescription());
+    private String avatarPath = CONFIG.getPathToAvatar();
 
     private final String CONFIRMATION = "Thank you for your registration";
 
@@ -36,13 +38,13 @@ public class RegistrationPageIT extends SeleniumTestBase {
                 .setLastName(lastName)
                 .setMaritalStatus(martialStatus)
                 .setHobbies(hobbies)
-                .selectCountry(country)
+                .setCountry(country)
                 .setPhoneNumber(phone)
                 .setUserName(firstName)
                 .setEmail(email)
-                .uploadAvatar()
+                .uploadAvatar(avatarPath)
                 .setDateOfBirth(8, 4, 1985)
-                .getDescriptionFromFile()
+                .setDescriptionFromFile(description)
                 .setPassword(password);
 
         // when

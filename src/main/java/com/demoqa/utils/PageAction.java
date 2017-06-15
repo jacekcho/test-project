@@ -54,7 +54,8 @@ public class PageAction {
         select.selectByValue(value);
     }
 
-    public void uploadFile(WebElement element, File file) {
+    public void uploadFile(WebElement element, String pathToFile) {
+        File file = new File(pathToFile);
         element.sendKeys(file.getAbsolutePath());
     }
 
@@ -88,5 +89,7 @@ public class PageAction {
             }
         });
     }
+
+
 }
 

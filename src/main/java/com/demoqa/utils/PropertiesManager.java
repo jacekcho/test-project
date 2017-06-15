@@ -65,4 +65,11 @@ public class PropertiesManager {
         return properties.getProperty("automationpractice.url");
     }
 
+    public String getPathToDescription() {
+        return properties.getProperty("description.path");
+    }
+
+    public String getPathToAvatar() {
+        return properties.getProperty("avatar.path");
+    }
 }

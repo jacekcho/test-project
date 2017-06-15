@@ -1,5 +1,5 @@
 To jest opis pobrany bezpośrednio z pliku tekstowego umieszczonego w projekcie
-Lokalizacja pliku description.txt to src/test/resources
+Lokalizacja pliku description.txt to /src/main/resources/files/
 
 Pozdrawiam serdecznie
 Jacek :) !

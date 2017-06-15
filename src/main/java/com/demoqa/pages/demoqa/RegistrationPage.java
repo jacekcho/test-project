@@ -5,13 +5,11 @@ import com.demoqa.dictionary.Hobby;
 import com.demoqa.dictionary.MartialStatus;
 import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.utils.PageAction;
-import org.apache.commons.io.FileUtils;
+import com.demoqa.utils.PropertiesManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 
 public class RegistrationPage {
@@ -77,7 +75,7 @@ public class RegistrationPage {
     private WebElement yearInput;
 
     @FindBy(id = "description")
-    private WebElement description;
+    private WebElement descriptionInput;
 
     private PageAction pageAction;
 
@@ -111,7 +109,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage selectCountry(Country country) {
+    public RegistrationPage setCountry(Country country) {
         pageAction.selectByValue(countryDropdown, country.get());
         return this;
     }
@@ -143,9 +141,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage uploadAvatar() {
-        File avatar = new File("src/main/resources/files/picture.gif");
-        pageAction.uploadFile(uploadProfilePicture, avatar);
+    public RegistrationPage uploadAvatar(String pathToAvatar) {
+        pageAction.uploadFile(uploadProfilePicture, pathToAvatar);
         return this;
     }
 
@@ -156,8 +153,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage getDescriptionFromFile() {
-        pageAction.insertText(description, readFromFile("description.txt"));
+    public RegistrationPage setDescriptionFromFile(String description) {
+        pageAction.insertText(descriptionInput, description);
         return this;
     }
 
@@ -184,21 +181,5 @@ public class RegistrationPage {
                 break;
         }
     }
-
-    private String readFromFile(String fileName) {
-        String text = "";
-        File file = new File(String.format("src/main/resources/files/%s", fileName));
-
-        try {
-            for (String line : FileUtils.readLines(file, "UTF-8")) {
-                text = text + line + "\n";
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return text;
-    }
-
 
 }

@@ -22,7 +22,7 @@ public class DraggablePage {
         PageFactory.initElements(SeleniumTestBase.driver, this);
     }
 
-    public DraggablePage moveButtonToNewPosition(int left, int top) {
+    public DraggablePage moveRectangleToNewPosition(int left, int top) {
         builder.clickAndHold(buttonToDrag)
                 .moveByOffset(left, top)
                 .release()

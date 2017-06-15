@@ -26,7 +26,7 @@ public class DragObjectIT extends SeleniumTestBase {
                 .goToDraggablePage();
 
         // when
-        draggablePage.moveButtonToNewPosition(newLeftPosition, newTopPosition);
+        draggablePage.moveRectangleToNewPosition(newLeftPosition, newTopPosition);
 
         // then
         assertThat(draggablePage.getNewElementPosition(), containsString(String.format(LEFT_POSITION, newLeftPosition)));
