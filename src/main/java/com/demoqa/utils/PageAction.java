@@ -1,6 +1,5 @@
 package com.demoqa.utils;
 
-import com.demoqa.driver.SeleniumTestBase;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.util.List;
 
+import static com.demoqa.driver.SeleniumTestBase.EXPLICIT_TIMEOUT;
+import static com.demoqa.driver.SeleniumTestBase.driver;
+
 public class PageAction {
 
     private WebDriverWait wait;
@@ -21,8 +23,8 @@ public class PageAction {
     private Actions actions;
 
     public PageAction() {
-        wait = new WebDriverWait(SeleniumTestBase.driver, SeleniumTestBase.EXPLICIT_TIMEOUT);
-        actions = new Actions(SeleniumTestBase.driver);
+        wait = new WebDriverWait(driver, EXPLICIT_TIMEOUT);
+        actions = new Actions(driver);
     }
 
     public void insertText(WebElement element, String value) {
@@ -38,7 +40,7 @@ public class PageAction {
     }
 
     public void jsClick(WebElement clickElement) {
-        JavascriptExecutor executor = (JavascriptExecutor) SeleniumTestBase.driver;
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", clickElement);
     }
 
@@ -68,8 +70,8 @@ public class PageAction {
     }
 
     public void switchToNewWindow() {
-        for (String winHandle : SeleniumTestBase.driver.getWindowHandles()) {
-            SeleniumTestBase.driver.switchTo().window(winHandle);
+        for (String winHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(winHandle);
         }
     }
 

@@ -12,6 +12,8 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import static com.demoqa.driver.SeleniumTestBase.driver;
+
 public class ScreenShots extends TestWatcher {
 
     private final SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
@@ -25,7 +27,7 @@ public class ScreenShots extends TestWatcher {
             return;
         }
 
-        if (SeleniumTestBase.driver instanceof TakesScreenshot) {
+        if (driver instanceof TakesScreenshot) {
             byte[] screenshot = takeScreenshot();
 
             File dir = createDestDir(description.getClassName());
@@ -55,7 +57,7 @@ public class ScreenShots extends TestWatcher {
     }
 
     private byte[] takeScreenshot() {
-        return ((TakesScreenshot) SeleniumTestBase.driver).getScreenshotAs(OutputType.BYTES);
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
     private void save(byte[] bytes, File dir, String file) {

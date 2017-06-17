@@ -3,15 +3,15 @@ package com.demoqa.pages.demoqa;
 import com.demoqa.dictionary.Country;
 import com.demoqa.dictionary.Hobby;
 import com.demoqa.dictionary.MartialStatus;
-import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.utils.PageAction;
-import com.demoqa.utils.PropertiesManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.HashMap;
 import java.util.List;
+
+import static com.demoqa.driver.SeleniumTestBase.driver;
 
 public class RegistrationPage {
 
@@ -90,7 +90,7 @@ public class RegistrationPage {
 
     public RegistrationPage() {
         pageAction = new PageAction();
-        PageFactory.initElements(SeleniumTestBase.driver, this);
+        PageFactory.initElements(driver, this);
         initAggregationMartialStatusAndWebElements();
     }
 

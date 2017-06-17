@@ -1,11 +1,12 @@
 package com.demoqa.pages.automationpractice;
 
 import com.demoqa.dictionary.State;
-import com.demoqa.driver.SeleniumTestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import static com.demoqa.driver.SeleniumTestBase.driver;
 
 public class AutomationPracticeAccountCreationPage {
 
@@ -40,7 +41,7 @@ public class AutomationPracticeAccountCreationPage {
     private WebElement submitAccount;
 
     public AutomationPracticeAccountCreationPage() {
-        PageFactory.initElements(SeleniumTestBase.driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     public AutomationPracticeAccountCreationPage setGender(boolean female) {
@@ -97,6 +98,4 @@ public class AutomationPracticeAccountCreationPage {
         submitAccount.click();
         return new AutomationPracticeMyAccountPage();
     }
-
-
 }

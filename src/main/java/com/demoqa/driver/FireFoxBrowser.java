@@ -11,7 +11,8 @@ public class FireFoxBrowser implements BrowserType<FirefoxDriver> {
     @Override
     public FirefoxDriver create() {
         FirefoxDriverManager.getInstance().setup();
-        return new FirefoxDriver(capabilities(fireFoxProfile()));
+        DesiredCapabilities capabilities = capabilities(fireFoxProfile());
+        return new FirefoxDriver(capabilities);
     }
 
     private FirefoxProfile fireFoxProfile() {

@@ -1,6 +1,5 @@
 package com.demoqa.pages.demoqa;
 
-import com.demoqa.driver.SeleniumTestBase;
 import com.demoqa.utils.PageAction;
 import com.demoqa.utils.PropertiesManager;
 import org.openqa.selenium.WebElement;
@@ -9,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.SlowLoadableComponent;
 import org.openqa.selenium.support.ui.SystemClock;
 
+import static com.demoqa.driver.SeleniumTestBase.EXPLICIT_TIMEOUT;
+import static com.demoqa.driver.SeleniumTestBase.driver;
 import static org.junit.Assert.assertTrue;
 
 public class DemoqaMainPage extends SlowLoadableComponent<DemoqaMainPage> {
@@ -22,8 +23,8 @@ public class DemoqaMainPage extends SlowLoadableComponent<DemoqaMainPage> {
     private PageAction pageAction;
 
     public DemoqaMainPage() {
-        super(new SystemClock(), SeleniumTestBase.EXPLICIT_TIMEOUT);
-        PageFactory.initElements(SeleniumTestBase.driver, this);
+        super(new SystemClock(), EXPLICIT_TIMEOUT);
+        PageFactory.initElements(driver, this);
         pageAction = new PageAction();
     }
 
@@ -39,12 +40,12 @@ public class DemoqaMainPage extends SlowLoadableComponent<DemoqaMainPage> {
 
     @Override
     protected void load() {
-        SeleniumTestBase.driver.get(PropertiesManager.getInstance().getDemoqaUrl());
+        driver.get(PropertiesManager.getInstance().getDemoqaUrl());
     }
 
     @Override
     protected void isLoaded() throws Error {
-        String url = SeleniumTestBase.driver.getCurrentUrl();
+        String url = driver.getCurrentUrl();
         assertTrue("Not on the main page: " + url, url.equals(PropertiesManager.getInstance().getDemoqaUrl()));
     }
 }
