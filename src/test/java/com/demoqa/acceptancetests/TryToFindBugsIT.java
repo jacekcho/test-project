@@ -1,7 +1,7 @@
 package com.demoqa.acceptancetests;
 
 import com.demoqa.dictionary.State;
-import com.demoqa.driver.SeleniumTestBase;
+import com.demoqa.driver.SeleniumBase;
 import com.demoqa.pages.automationpractice.AutomationPracticeAccountCreationPage;
 import com.demoqa.pages.automationpractice.AutomationPracticeLoginPage;
 import com.demoqa.pages.automationpractice.AutomationPracticeMainPage;
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertThat;
  */
 
 @Ignore
-public class TryToFindBugsIT extends SeleniumTestBase {
+public class TryToFindBugsIT extends SeleniumBase {
 
     private String userEmail = Generators.randomEmail();
     private boolean isFemale = true;

@@ -8,9 +8,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-public class ScenarioRunner {
+public class BddSeleniumRunner {
 
     public static RemoteWebDriver driver;
+
+    private static final int IMPLICIT_TIMEOUT = 15;
 
     @Before
     public void executeBeforeScenario() {
@@ -26,7 +28,7 @@ public class ScenarioRunner {
         driver = new ChromeBrowser().create();
         driver.manage().window().maximize();
         driver.setLogLevel(Level.INFO);
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
     }
 
     private void closeDriver() {

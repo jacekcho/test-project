@@ -27,7 +27,7 @@ public class ExampleIT {
         driver = new FireFoxBrowser().create();                                 //Inicjujemy obiekt klasy FirefoxDriver (w tym momnencie pojawi się nowe okno przegladarki na której będą wykonywane operacje)
     }
 
-    @Test                                                                       //Adnotacja jUnit'a za jej pomocą informujemy, że tutaj zaczyna się test
+    @Test                                                                       //Adnotacja jUnit'a za jej pomocą informujemy, że tutaj zaczyna się tests
     public void shouldLoginWithIncorrectData() throws InterruptedException {    //Nazwa metody/testu w której umieścimy nasz kod testu
         // given
         driver.get("http://netwars.pl");                                        //metoda get() pozwala nam na przejscie do danej strony internetowej

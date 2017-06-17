@@ -1,6 +1,5 @@
 package com.demoqa.utils;
 
-import com.demoqa.driver.SeleniumTestBase;
 import org.apache.log4j.Logger;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
@@ -12,7 +11,7 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static com.demoqa.driver.SeleniumTestBase.driver;
+import static com.demoqa.driver.SeleniumBase.driver;
 
 public class ScreenShots extends TestWatcher {
 
@@ -33,7 +32,7 @@ public class ScreenShots extends TestWatcher {
             File dir = createDestDir(description.getClassName());
             String file = createFileName(description.getMethodName());
             save(screenshot, dir, file);
-            LOGGER.info(String.format("Failed test: %s", description.getDisplayName()));
+            LOGGER.info(String.format("Failed tests: %s", description.getDisplayName()));
         }
     }
 

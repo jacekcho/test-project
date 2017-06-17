@@ -15,7 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
-public class SeleniumTestBase {
+public class SeleniumBase {
 
     public static RemoteWebDriver driver;
 
@@ -25,7 +25,7 @@ public class SeleniumTestBase {
 
     public static PropertiesManager CONFIG = PropertiesManager.getInstance();
 
-    private final static Logger LOGGER = Logger.getLogger(SeleniumTestBase.class);
+    private final static Logger LOGGER = Logger.getLogger(SeleniumBase.class);
 
     @Rule
     public ScreenShots rule = new ScreenShots();

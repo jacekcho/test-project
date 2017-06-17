@@ -1,6 +1,6 @@
 package com.demoqa.acceptancetests;
 
-import com.demoqa.driver.SeleniumTestBase;
+import com.demoqa.driver.SeleniumBase;
 import com.demoqa.utils.Files;
 import com.demoqa.utils.Generators;
 import com.demoqa.dictionary.Country;
@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-public class RegistrationPageIT extends SeleniumTestBase {
+public class RegistrationPageIT extends SeleniumBase {
 
     private String firstName = Generators.randomFirstName();
     private String lastName = Generators.randomLastName();

@@ -7,8 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.SlowLoadableComponent;
 import org.openqa.selenium.support.ui.SystemClock;
 
-import static com.demoqa.driver.SeleniumTestBase.EXPLICIT_TIMEOUT;
-import static com.demoqa.driver.SeleniumTestBase.driver;
+import static com.demoqa.driver.SeleniumBase.EXPLICIT_TIMEOUT;
+import static com.demoqa.driver.SeleniumBase.driver;
 import static org.junit.Assert.assertTrue;
 
 public class AutomationPracticeMainPage extends SlowLoadableComponent<AutomationPracticeMainPage> {

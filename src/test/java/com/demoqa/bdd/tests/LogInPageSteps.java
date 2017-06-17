@@ -1,46 +1,59 @@
 package com.demoqa.bdd.tests;
 
+import com.demoqa.bdd.page.LoginPage;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 
-import static com.demoqa.bdd.tests.ScenarioRunner.driver;
+import static org.junit.Assert.assertThat;
 
 public class LogInPageSteps {
 
-    final static Logger LOGGER = Logger.getLogger(LogInPageSteps.class);
+    private LoginPage loginPage = new LoginPage();
 
-    @Given("^User is on Home Page$")
-    public void user_is_on_Home_Page() throws Throwable {
-        driver.get("http://www.store.demoqa.com");
+    @Given("^user is on home page$")
+    public void userIsOnHomePage() {
+        loginPage.goToMainPage();
     }
 
-    @When("^User Navigate to LogIn Page$")
-    public void user_Navigate_to_LogIn_Page() throws Throwable {
-        driver.findElement(By.xpath(".//*[@id='account']/a")).click();
+    @When("^user navigate to login page$")
+    public void userNavigateToLogInPage() {
+        loginPage.navigateToLoginPage();
     }
 
-    @When("^User enters UserName and Password$")
-    public void user_enters_UserName_and_Password() throws Throwable {
-        driver.findElement(By.id("log")).sendKeys("jacektest");
-        driver.findElement(By.id("pwd")).sendKeys("QW12qw12");
-        driver.findElement(By.id("login")).click();
+    @And("^user entered login (.*)$")
+    public void userEnteredLogin(String login) {
+        loginPage.enterLogin(login);
     }
 
-    @Then("^Message displayed Login Successfully$")
-    public void message_displayed_Login_Successfully() throws Throwable {
-        LOGGER.info("Log In Successfully");
+    @And("^user entered password (.*)$")
+    public void userEnteredPassword(String password) {
+        loginPage.enterPassword(password);
     }
 
-    @When("^User LogOut from the Application$")
-    public void user_LogOut_from_the_Application() throws Throwable {
-        driver.findElement(By.id("account_logout")).click();
+    @And("^user logs on$")
+    public void userLogsOn() {
+        loginPage.logInDefaultUser();
     }
 
-    @Then("^Message displayed Logout Successfully$")
-    public void message_displayed_Logout_Successfully() throws Throwable {
-        LOGGER.info("Log Out Successfully");
+    @Then("^user click log in button$")
+    public void userClickLoginButton() {
+        loginPage.submitLogIn();
+    }
+
+    @Then("^user logged as: (.*)$")
+    public void userLoggedAs(String userLogin) {
+        loginPage.checkLoggedUserName(userLogin);
+    }
+
+    @Then("^user is logged out$")
+    public void logoutSuccessfullyConfirmation() {
+        loginPage.getLogoutConfirmation();
+    }
+
+    @When("^user log out from the application$")
+    public void theUserLogOutFromTheApplication() {
+        loginPage.logOutUser();
     }
 }

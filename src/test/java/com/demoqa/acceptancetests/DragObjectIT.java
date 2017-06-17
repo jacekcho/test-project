@@ -1,7 +1,7 @@
 package com.demoqa.acceptancetests;
 
 import com.demoqa.category.TestCategory;
-import com.demoqa.driver.SeleniumTestBase;
+import com.demoqa.driver.SeleniumBase;
 import com.demoqa.pages.demoqa.DemoqaMainPage;
 import com.demoqa.pages.demoqa.DraggablePage;
 import org.junit.Test;
@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
 @Category(TestCategory.class)
-public class DragObjectIT extends SeleniumTestBase {
+public class DragObjectIT extends SeleniumBase {
 
     private final String LEFT_POSITION = "left: %spx";
 

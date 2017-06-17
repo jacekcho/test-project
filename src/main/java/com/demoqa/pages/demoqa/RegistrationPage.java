@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.demoqa.driver.SeleniumTestBase.driver;
+import static com.demoqa.driver.SeleniumBase.driver;
 
 public class RegistrationPage {
 

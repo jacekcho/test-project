@@ -13,8 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.util.List;
 
-import static com.demoqa.driver.SeleniumTestBase.EXPLICIT_TIMEOUT;
-import static com.demoqa.driver.SeleniumTestBase.driver;
+import static com.demoqa.driver.SeleniumBase.EXPLICIT_TIMEOUT;
+import static com.demoqa.driver.SeleniumBase.driver;
 
 public class PageAction {
 

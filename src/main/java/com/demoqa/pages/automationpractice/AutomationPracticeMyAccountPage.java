@@ -2,7 +2,7 @@ package com.demoqa.pages.automationpractice;
 
 import org.openqa.selenium.support.PageFactory;
 
-import static com.demoqa.driver.SeleniumTestBase.driver;
+import static com.demoqa.driver.SeleniumBase.driver;
 
 public class AutomationPracticeMyAccountPage {
 
