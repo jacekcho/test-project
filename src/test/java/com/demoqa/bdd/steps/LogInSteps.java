@@ -1,6 +1,8 @@
 package com.demoqa.bdd.steps;
 
 import com.demoqa.bdd.page.LoginPage;
+import com.demoqa.bdd.page.MainPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -10,14 +12,16 @@ public class LogInSteps {
 
     private LoginPage loginPage = new LoginPage();
 
+    private MainPage mainPage = new MainPage();
+
     @Given("^user is on home page$")
     public void userIsOnHomePage() {
-        loginPage.goToMainPage();
+        mainPage.goToMainPage();
     }
 
     @When("^user navigate to login page$")
     public void userNavigateToLogInPage() {
-        loginPage.navigateToLoginPage();
+        mainPage.navigateToLoginPage();
     }
 
     @And("^user entered login (.*)$")
@@ -53,5 +57,10 @@ public class LogInSteps {
     @When("^user log out from the application$")
     public void theUserLogOutFromTheApplication() {
         loginPage.logOutUser();
+    }
+
+    @Then("^user get invalid login credentials$")
+    public void userGetInvalidLoginCredentials() {
+        loginPage.getInvalidCredentatialConfirmation();
     }
 }

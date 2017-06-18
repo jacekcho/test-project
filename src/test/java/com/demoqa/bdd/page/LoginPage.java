@@ -1,5 +1,6 @@
 package com.demoqa.bdd.page;
 
+import com.demoqa.bdd.selenium.SeleniumHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,9 +10,6 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 
 public class LoginPage {
-
-    @FindBy(id = "account")
-    private WebElement account;
 
     @FindBy(id = "wpadminbar")
     private WebElement adminBar;
@@ -26,26 +24,20 @@ public class LoginPage {
     private WebElement logInSubmit;
 
     @FindBy(className = "myaccount")
-    private WebElement myAccount;
-
-    @FindBy(id = "login_wrapper")
-    private WebElement loginWrapper;
+    private WebElement myAccountInput;
 
     @FindBy(id = "account_logout")
     private WebElement logoutButton;
 
+    @FindBy(className = "response")
+    private WebElement invalidCredentialMessage;
+
+    private final String LOGOUT_CONFIRMATION = "Please use the form below to login to your account";
+
+    private final String INVALID_CREDENTIAL = "ERROR: Invalid login credentials";
+
     public LoginPage() {
         PageFactory.initElements(driver, this);
-    }
-
-    public LoginPage goToMainPage() {
-        driver.get("http://www.store.demoqa.com");
-        return this;
-    }
-
-    public LoginPage navigateToLoginPage() {
-        account.click();
-        return this;
     }
 
     public LoginPage checkLoggedUserName(String userLogin) {
@@ -81,8 +73,14 @@ public class LoginPage {
     }
 
     public LoginPage getLogoutConfirmation() {
-        loginWrapper.isDisplayed();
-        assertThat(myAccount.getText(), containsString("Please use the form below to login to your account"));
+        SeleniumHelper.waitForAjax();
+        assertThat(myAccountInput.getText(), containsString(LOGOUT_CONFIRMATION));
+        return this;
+    }
+
+    public LoginPage getInvalidCredentatialConfirmation() {
+        SeleniumHelper.waitForAjax();
+        assertThat(invalidCredentialMessage.getText(), containsString(INVALID_CREDENTIAL));
         return this;
     }
 }
