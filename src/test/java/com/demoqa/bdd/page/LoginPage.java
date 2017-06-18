@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static com.demoqa.bdd.tests.BddSeleniumRunner.driver;
+import static com.demoqa.bdd.selenium.BddSeleniumRunner.driver;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertThat;
 

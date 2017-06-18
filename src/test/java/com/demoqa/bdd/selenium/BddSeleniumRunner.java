@@ -1,4 +1,4 @@
-package com.demoqa.bdd.tests;
+package com.demoqa.bdd.selenium;
 
 import com.demoqa.driver.ChromeBrowser;
 import cucumber.api.java.After;
