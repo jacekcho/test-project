@@ -9,7 +9,7 @@ public enum Country {
 
     private String setCountry;
 
-    private Country(String setCountry) {
+    Country(String setCountry) {
         this.setCountry = setCountry;
     }
 
